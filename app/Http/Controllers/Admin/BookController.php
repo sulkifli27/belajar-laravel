@@ -25,7 +25,6 @@ class BookController extends Controller
         ]);
 
        Book::create($request->all());
-
        return redirect()->route("book-index");
     }
 
@@ -41,6 +40,8 @@ class BookController extends Controller
             'name' => 'required',
             'author' => 'required',
             'year' => 'required',
+        ], [
+            "name" => "wajib di isi"
         ]
         );
 
