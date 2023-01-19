@@ -45,8 +45,6 @@ class BookController extends Controller
         ]
         );
 
-        
-
         $book->update($request->all());
 
         return redirect()->route("book-index");
