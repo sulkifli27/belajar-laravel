@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BookController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,3 +25,7 @@ Route::post('/book/store', [BookController::class, 'store'])->name("book-store")
 Route::get('/book/index', [BookController::class, 'index'])->name("book-index");
 Route::delete('/book/delete/{id}', [BookController::class, 'destroy'])->name("book-delete");
 Route::put('/book/update/{id}', [BookController::class, 'update'])->name("book-update");
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
