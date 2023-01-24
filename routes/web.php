@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BookController;
+use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -16,16 +17,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('backend.master');
+    return view('auth.login');
 });
 
-Route::get('/book/create', [BookController::class, 'create'])->name("book-create");
-Route::get('/book/edit/{id}', [BookController::class, 'edit'])->name("book-edit");
-Route::post('/book/store', [BookController::class, 'store'])->name("book-store");
-Route::get('/book/index', [BookController::class, 'index'])->name("book-index");
-Route::delete('/book/delete/{id}', [BookController::class, 'destroy'])->name("book-delete");
-Route::put('/book/update/{id}', [BookController::class, 'update'])->name("book-update");
+Route::middleware('auth')->group(function () {
+    Route::get('/book/create', [BookController::class, 'create'])->name("book-create");
+    Route::get('/book/edit/{id}', [BookController::class, 'edit'])->name("book-edit");
+    Route::post('/book/store', [BookController::class, 'store'])->name("book-store");
+    Route::get('/book/index', [BookController::class, 'index'])->name("book-index");
+    Route::delete('/book/delete/{id}', [BookController::class, 'destroy'])->name("book-delete");
+    Route::put('/book/update/{id}', [BookController::class, 'update'])->name("book-update");
+
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+});
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
