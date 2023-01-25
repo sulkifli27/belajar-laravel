@@ -18,10 +18,17 @@
             <span>Dashboard</span></a>
     </li>
 
+        
     <li class="nav-item">
         <a  class="nav-link" href="{{route("book-index")}}">
             <i class="fas fa-fw fa-book"></i>
             <span>Book</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a  class="nav-link" href="{{route("student-index")}}">
+            <i class="fas fa-fw fa-book"></i>
+            <span>Student</span></a>
     </li>
 
     <!-- Sidebar Toggler (Sidebar) -->
