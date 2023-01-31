@@ -12,6 +12,20 @@
     @enderror
   </div>
   <div class="form-group">
+    <select class="form-control"  name="category_id" id="">
+        <option label="Pilih Category"></option>
+        @foreach ($category as $item)      
+        <option value="{{$item->id}}">{{$item->name}}</option>
+        @endforeach
+    </select>
+    @error('category_id')
+    <span class="text-danger" >
+        <strong>{{ $message }}</strong>
+    </span>
+    @enderror
+  </div>
+
+  <div class="form-group">
       <label for="author">Penulis</label>
       <input name="author" type="text" class="form-control" id="author"  >
       @error('author')

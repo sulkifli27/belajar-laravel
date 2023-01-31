@@ -490,6 +490,8 @@
 
     @include('backend.partial.js')
 
+    
+
 </body>
 
 </html>
