@@ -11,6 +11,7 @@
         <tr>
           <th scope="col">No</th>
           <th scope="col">Nama</th>
+          <th scope="col">Category</th>
           <th scope="col">Penulis</th>
           <th scope="col">Tahun Terbit</th>
           @if (Auth::user()->role == "admin") 
@@ -23,6 +24,7 @@
           <tr>
               <th scope="row">{{$key + 1}}</th>
               <td>{{$item->name}}</td>
+              <td>{{$item->category->name}}</td>
               <td>{{$item->author}}</td>
               <td>{{$item->year}}</td>
               @if (Auth::user()->role == "admin") 

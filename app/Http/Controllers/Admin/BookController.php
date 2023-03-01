@@ -14,7 +14,7 @@ class BookController extends Controller
         // mysql 
         // select * from books
         // select * from books limit 4 
-        $books = Book::paginate(5);
+        $books = Book::with("category")->paginate(5);
         return view("admin.book.index", compact("books"));
     }
 
